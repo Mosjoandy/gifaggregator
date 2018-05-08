@@ -1,3 +1,4 @@
+// Array for buttons
 var userButtons = ["Excitement", "High Fives", "Good Job", "Disgust", "Nope", "Yup", "Surprised", "Awkward", "Listen", "Magic", "No way"];
 
 // Make a button function
@@ -33,17 +34,16 @@ $(document).on("click", "#submitSearch", function(event){
         renderButton();
 });
 
-// $("submit").on("click", function() {
 $(document).on("click", ".userButtons", function(event){
     event.preventDefault();
-
     $(".gifs").empty();
-    // Get data-attribute from buttons made earlier
-    var userSearch = $(this).attr("data-attribute");
 
-    // var userSearch = userButton.val();
+    // Get data-attribute from buttons made earlier
+        var userSearch = $(this).attr("data-attribute");
+
     console.log(userSearch);
 
+    //ajax call using GIPHY API
     $.ajax({
     url: "http://api.giphy.com/v1/gifs/search?q=" + userSearch + "&api_key=z1Eb9fn2NeVbF2OEpyUtX5CfPu1tIJkT" + "&limit=10",
     method: "GET"
@@ -68,13 +68,11 @@ $(document).on("click", ".userButtons", function(event){
                 gifResult.attr("data-still", gifs[i].images.fixed_height_still.url)
                 gifResult.attr("data-state", "still");
 
-            // Put rating search result into a p
-            // give it a class
-            // give that class the actual rating text
+            // Make rating p, give it data and some styling    
                 var gifRating = $("<p>");
-                // gifRating.attr("class", "text-center");
                 gifRating.html("Rating: <strong>" + gifs[i].rating + "</strong>");
                 
+            // Make URL div, give it class and data
                 var gifURL = $("<div>");
                 gifURL.attr("class", "linkURL")
                 gifURL.html(gifs[i].images.fixed_height.url);
@@ -90,17 +88,18 @@ $(document).on("click", ".userButtons", function(event){
     });
 });
 
-    // Pausing and playing the gifs
-    $(document).on("click", ".clickMe", function(){
-        var state = $(this).attr("data-state");
+// Pausing and playing the gifs
+$(document).on("click", ".clickMe", function(){
+    var state = $(this).attr("data-state");
 
-        if (state === "still"){
-            $(this).attr("data-state", "animate");
-            $(this).attr("src", $(this).attr("data-animate"));
-        } else {
-            $(this).attr("data-state", "still");
-            $(this).attr("src", $(this).attr("data-still"))
-        }
-    })
+    // Default state of images is "still"
+    if (state === "still"){
+        $(this).attr("data-state", "animate");
+        $(this).attr("src", $(this).attr("data-animate"));
+    } else {
+        $(this).attr("data-state", "still");
+        $(this).attr("src", $(this).attr("data-still"))
+    }
+})
 
-    renderButton();
+renderButton();
