@@ -45,7 +45,7 @@ $(document).on("click", ".userButtons", function(event){
 
     //ajax call using GIPHY API
     $.ajax({
-    url: "http://api.giphy.com/v1/gifs/search?q=" + userSearch + "&api_key=z1Eb9fn2NeVbF2OEpyUtX5CfPu1tIJkT" + "&limit=10",
+    url: "https://api.giphy.com/v1/gifs/search?q=" + userSearch + "&api_key=z1Eb9fn2NeVbF2OEpyUtX5CfPu1tIJkT" + "&limit=10",
     method: "GET"
     }).then(function(response) {
     console.log(response);
