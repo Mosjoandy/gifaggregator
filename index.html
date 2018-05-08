@@ -6,15 +6,16 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light sticky-top">
         <a class="navbar-brand">GIF Aggregator</a>
 
         <form class="form-inline">
           <input class="form-control mr-sm-2 gifSearch" type="text" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search for Gifs</button>
+          <button class="btn btn-outline-secondary my-2 my-sm-0" id="submitSearch" type="submit">Search for Gifs</button>
         </form>
 
       </nav>
@@ -22,9 +23,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div class="buttonDump">
-                <button type="button" class="btn btn-secondary">PLaceholder</button>
-                
+            <div class="buttonDump " id="placeholder">
             </div>
         </div>
     </div>
